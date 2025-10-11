@@ -13,6 +13,7 @@ l_paddle = Paddle((-380, 0))
 
 is_game_on = True
 
+
 while is_game_on:
     myScreen.update()
     time.sleep(0.1)
