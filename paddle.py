@@ -21,10 +21,15 @@ class Paddle(Turtle):
     def go_up(self):
         new_y = self.ycor() + MOVE_DISTANCE
         self.goto(self.xcor(), new_y)
+        if new_y >= 250:
+            self.goto(self.xcor(), 250)
+
 
     def go_down(self):
         new_y = self.ycor() - MOVE_DISTANCE
         self.goto(self.xcor(), new_y)
+        if new_y <= -250:
+            self.goto(self.xcor(), -250)
 
     def move_paddle(self, key1, key2):
         myScreen.onkey(self.go_up, key1)

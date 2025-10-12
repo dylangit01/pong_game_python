@@ -16,15 +16,21 @@ ball = Ball()
 is_game_on = True
 
 while is_game_on:
-    time.sleep(0.2)
+    time.sleep(0.15)
     myScreen.update()
     r_paddle.move_paddle('Up', 'Down')
     l_paddle.move_paddle('w', 's')
     ball.move()
 
+    # Detect collision with wall:
     if ball.ycor() > 280 or ball.ycor() < -280:
         ball.y_bounce()
-    if r_paddle.xcor() - ball.xcor() < 20 or abs(l_paddle.xcor()) - abs(ball.xcor()) < 20:
+
+    # Detect collision with paddle:
+    # if ball.distance(l_paddle) < 55:
+    #     print(f'{ball.xcor()}.....????')
+    # print(ball.xcor())
+    if ball.distance(r_paddle) < 55 and (371 > ball.xcor() > 360) or ball.distance(l_paddle) < 55 and (-380 < ball.xcor() < -360):
         ball.x_bounce()
 
 
